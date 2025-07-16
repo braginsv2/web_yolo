@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Журнал событий - Система Видеоаналитики</title>
+    
+    <!-- Основные стили -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Стили для страницы событий -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/events.css') }}">
+    
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Логотип" class="header-logo" width="180">
+            <div class="header-content">
+                <h1>Журнал событий</h1>
+                <p class="subtitle">Система оценки алармов детекции человека и анализ площади сегментации</p>
+            </div>
+            <div></div> <!-- Пустой третий столбец -->
+        </header>
+
+        <!-- Навигация -->
+        <div class="nav-buttons">
+            <a href="/" class="nav-btn">Главная</a>
+            <a href="/events" class="nav-btn active">Журнал событий</a>
+        </div>
+
+        <!-- Основной контент -->
+        <div class="events-container">
+            <!-- Основная область со статистикой -->
+            <div class="main-content">
+                <!-- Общая статистика -->
+                <div class="stats-overview">
+                    <h2 style="color: var(--primary-blue); margin-bottom: 10px; font-family: 'Montserrat', monospace; text-align: center;">
+                        Общая статистика
+                    </h2>
+                    
+                    <div class="stats-grid-overview">
+                        <div class="stat-card">
+                            <div class="stat-card-value" style="color: var(--primary-blue);" id="total-alarms">-</div>
+                            <div class="stat-card-label">Всего алармов</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-value" style="color: var(--warning-color);" id="pending-alarms">-</div>
+                            <div class="stat-card-label">Ожидают оценки</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-value" style="color: var(--success-color);" id="correct-alarms">-</div>
+                            <div class="stat-card-label">Верно определены</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-value" style="color: var(--error-color);" id="incorrect-alarms">-</div>
+                            <div class="stat-card-label">Неверно определены</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-value" style="color: var(--accent-green);" id="accuracy-percent">-</div>
+                            <div class="stat-card-label">Точность</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Новая секция: Статистика площади сегментации -->
+                <div class="stats-overview">
+                    <h2 style="color: var(--primary-blue); margin-bottom: 10px; font-family: 'Montserrat', monospace; text-align: center;">
+                        Статистика площади сегментации
+                    </h2>
+                    
+                    <div class="segmentation-stats-grid">
+                        <div class="segmentation-stat-card">
+                            <div class="segmentation-stat-value" style="color: var(--accent-green);" id="camera1-current-area">0</div>
+                            <div class="segmentation-stat-label">Камера 1 (пикс)</div>
+                        </div>
+                        <div class="segmentation-stat-card">
+                            <div class="segmentation-stat-value" style="color: var(--accent-green);" id="camera2-current-area">0</div>
+                            <div class="segmentation-stat-label">Камера 2 (пикс)</div>
+                        </div>
+                        <div class="segmentation-stat-card highlight">
+                            <div class="segmentation-stat-value" style="color: var(--warning-color);" id="current-product">0</div>
+                            <div class="segmentation-stat-label">Произведение (пикс²)</div>
+                        </div>
+                        
+                    </div>
+
+                    <!-- Формула -->
+                    <div class="formula-display">
+                        <h4>Формула расчета:</h4>
+                        <div class="formula">
+                            <span id="formula-cam1">0</span> × <span id="formula-cam2">0</span> = <span id="formula-result">0</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Боковая панель с алармами -->
+            <div class="events-sidebar">
+                <div class="events-header">
+                    <div class="events-title">Неоцененные алармы</div>
+                    <div class="events-counter" id="alarms-counter">0</div>
+                </div>
+                
+                <div id="alarms-list">
+                    <div class="no-alarms">
+                        Алармы отсутствуют
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для просмотра изображений -->
+    <div id="image-modal" class="image-modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img id="modal-image" class="modal-image" src="" alt="Аларм">
+        </div>
+    </div>
+
+    <!-- Модальное окно для уведомлений -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span id="notification-text"></span>
+            <button id="notification-close" class="notification-close">&times;</button>
+        </div>
+    </div>
+
+    <!-- Подключение JavaScript -->
+    <!-- Логика для страницы событий -->
+    <script src="{{ url_for('static', filename='js/events.js') }}"></script>
+</body>
+</html>

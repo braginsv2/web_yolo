@@ -1,0 +1,935 @@
+/* Локальные шрифты Montserrat */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+/* Локальный шрифт Syncopate Cyr (для заголовков) */
+@font-face {
+    font-family: 'Syncopate Cyr';
+    src: url('../fonts/Syncopate Bold Cyr.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Основные корпоративные цвета */
+    --primary-blue: #05AFED;
+    --secondary-blue: #001E95;
+    --white: #FFFFFF;
+    --black: #000000;
+    
+    /* Дополнительные цвета */
+    --accent-blue-1: #0894C7;
+    --accent-blue-2: #5CD1FC;
+    --accent-blue-3: #0894C7;
+    --deep-blue-1: #01145E;
+    --deep-blue-2: #284AD2;
+    --deep-blue-3: #01145E;
+    
+    /* Градации серого */
+    --gray-dark-1: #2E2E2E;
+    --gray-dark-2: #4B4B4B;
+    --gray-dark-3: #2E2E2E;
+    --gray-medium: #9F9F9F;
+    --gray-light-1: #D3D3D3;
+    --gray-light-2: #ECECEC;
+    
+    /* Системные цвета */
+    --success-color: #05AFED;
+    --warning-color: #284AD2;
+    --error-color: #001E95;
+    
+    /* Дополнительные цвета */
+    --accent-green: #05AFED;
+    --accent-orange: #284AD2;
+    
+    /* Фоны и панели */
+    --dark-bg: #000000;
+    --dark-panel: #2E2E2E;
+    --dark-card: #4B4B4B;
+    --light-panel: #ECECEC;
+    --light-card: #FFFFFF;
+    
+    /* Текстовые цвета */
+    --text-primary: #FFFFFF;
+    --text-secondary: #D3D3D3;
+    --text-muted: #9F9F9F;
+    --text-dark: #2E2E2E;
+    
+    /* Границы */
+    --border-color: #4B4B4B;
+    --border-light: #D3D3D3;
+    --border-accent: #05AFED;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, var(--black) 0%, var(--gray-dark-1) 50%, var(--deep-blue-1) 100%);
+    min-height: 100vh;
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow: auto;
+    font-weight: 400;
+}
+
+/* Добавляем тонкую корпоративную анимацию фона */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(5, 175, 237, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(40, 74, 210, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(1, 20, 94, 0.05) 0%, transparent 50%);
+    z-index: -1;
+    animation: subtleShift 20s ease-in-out infinite;
+}
+
+@keyframes subtleShift {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+/* Контейнер */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 12px;
+    overflow: auto;
+}
+
+/* Корпоративный заголовок */
+.header {
+    text-align: center;
+    background: linear-gradient(135deg, var(--dark-panel) 0%, var(--gray-dark-2) 100%);
+    border-radius: 12px;
+    padding: 20px;
+    border: 2px solid var(--border-accent);
+    box-shadow: 
+        0 8px 32px rgba(5, 175, 237, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+}
+.header-logo {
+    margin-left: 95px;
+}
+.header-content {
+    text-align: center;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(5, 175, 237, 0.1), transparent);
+    animation: headerGlow 3s ease-in-out infinite;
+}
+
+@keyframes headerGlow {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}
+
+.header h1 {
+    font-family: 'Syncopate Cyr', 'Montserrat', sans-serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(5, 175, 237, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+.subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    color: var(--text-secondary);
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Навигация */
+.nav-buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    justify-content: center;
+}
+
+.nav-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--dark-card) 0%, var(--gray-dark-2) 100%);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+    font-size: 0.9em;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(5, 175, 237, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+    transform: translateY(-3px);
+    box-shadow: 
+        0 8px 25px rgba(5, 175, 237, 0.3),
+        0 0 20px rgba(5, 175, 237, 0.2);
+}
+
+.nav-btn:hover::before {
+    left: 100%;
+}
+
+.nav-btn.active {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue-1) 100%);
+    border-color: var(--primary-blue);
+    color: var(--white);
+    box-shadow: 
+        0 6px 20px rgba(5, 175, 237, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Главный контейнер для камер */
+.cameras-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    overflow: hidden;
+    min-height: 0;
+}
+
+/* Секции камер */
+.camera-section {
+    background: linear-gradient(135deg, var(--dark-panel) 0%, var(--gray-dark-2) 100%);
+    border-radius: 12px;
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6px;
+    min-height: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.camera-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue-2), var(--primary-blue));
+    border-radius: 12px 12px 0 0;
+}
+
+.camera-header h2 {
+    font-family: 'Syncopate Cyr', 'Montserrat', sans-serif;
+    color: var(--primary-blue);
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--border-accent);
+    padding-bottom: 6px;
+    text-shadow: 0 0 10px rgba(5, 175, 237, 0.3);
+}
+
+/* Основное содержимое камеры */
+.camera-content {
+    display: flex;
+    gap: 12px;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Панель управления камерой */
+.camera-controls-panel {
+    flex: 0 0 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Элементы управления */
+.camera-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--dark-card) 0%, var(--gray-dark-1) 100%);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    flex-shrink: 0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 6px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-group input {
+    padding: 6px 8px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.8em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    background: var(--dark-bg);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 
+        0 0 0 3px rgba(5, 175, 237, 0.2),
+        0 0 20px rgba(5, 175, 237, 0.1);
+    background: var(--dark-panel);
+    transform: translateY(-1px);
+}
+
+/* Кнопки */
+.camera-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.8em;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--success-color) 0%, var(--accent-blue-1) 100%);
+    color: var(--white);
+    border: 2px solid var(--success-color);
+    box-shadow: 0 4px 15px rgba(5, 175, 237, 0.3);
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, var(--accent-blue-1) 0%, var(--success-color) 100%);
+    box-shadow: 0 8px 25px rgba(5, 175, 237, 0.4);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, var(--error-color) 0%, var(--deep-blue-1) 100%);
+    color: var(--white);
+    border: 2px solid var(--error-color);
+    box-shadow: 0 4px 15px rgba(0, 30, 149, 0.3);
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, var(--deep-blue-1) 0%, var(--error-color) 100%);
+    box-shadow: 0 8px 25px rgba(0, 30, 149, 0.4);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Статус карточки */
+.status-card {
+    background: linear-gradient(135deg, var(--dark-card) 0%, var(--gray-dark-1) 100%);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.status-card h4 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.indicator-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px currentColor;
+}
+
+.status-indicator.disconnected .indicator-light {
+    background: var(--error-color);
+    color: var(--error-color);
+}
+
+.status-indicator.connected .indicator-light {
+    background: var(--success-color);
+    color: var(--success-color);
+}
+
+.status-indicator.processing .indicator-light {
+    background: var(--warning-color);
+    color: var(--warning-color);
+    animation: processingPulse 2s ease-in-out infinite;
+}
+
+.indicator-text {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.85em;
+}
+
+@keyframes processingPulse {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1);
+        box-shadow: 0 0 10px currentColor;
+    }
+    50% { 
+        opacity: 0.7; 
+        transform: scale(1.2);
+        box-shadow: 0 0 20px currentColor;
+    }
+}
+
+/* Панель видео */
+.video-panel {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
+    max-width: 600px;
+}
+
+/* Видео контейнеры */
+.video-box {
+    background: linear-gradient(135deg, var(--dark-card) 0%, var(--gray-dark-1) 100%);
+    border-radius: 12px;
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    transition: all 0.4s ease;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue-2), var(--primary-blue));
+    border-radius: 12px 12px 0 0;
+}
+
+.video-box:hover {
+    border-color: var(--primary-blue);
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(5, 175, 237, 0.2);
+    transform: translateY(-2px);
+}
+
+.video-box h3 {
+    text-align: center;
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 8px;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--gray-dark-1) 100%);
+    border-radius: 8px;
+    border: 1px solid var(--border-accent);
+    font-weight: 700;
+    flex-shrink: 0;
+    text-shadow: 0 0 10px rgba(5, 175, 237, 0.3);
+}
+
+.video-placeholder {
+    position: relative;
+    width: 100%;
+    height: 265px;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--gray-dark-1) 100%);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border-color);
+    flex-shrink: 0;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.video-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.placeholder-text {
+    position: absolute;
+    color: var(--text-secondary);
+    font-size: 1em;
+    font-weight: 600;
+    text-align: center;
+    z-index: 1;
+    padding: 20px;
+    background: rgba(46, 46, 46, 0.9);
+    border-radius: 8px;
+    border: 1px solid var(--border-accent);
+    backdrop-filter: blur(10px);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.placeholder-icon {
+    font-size: 2.5em;
+    margin-bottom: 12px;
+    opacity: 0.7;
+    color: var(--primary-blue);
+    filter: drop-shadow(0 0 10px rgba(5, 175, 237, 0.3));
+}
+
+/* Уведомления */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    transform: translateX(400px);
+    transition: transform 0.5s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification-content {
+    background: linear-gradient(135deg, var(--dark-panel) 0%, var(--gray-dark-2) 100%);
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(5, 175, 237, 0.2);
+    border: 2px solid var(--border-accent);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 380px;
+    backdrop-filter: blur(10px);
+}
+
+.notification-content.success {
+    border-color: var(--success-color);
+    background: linear-gradient(135deg, rgba(5, 175, 237, 0.2) 0%, var(--gray-dark-2) 100%);
+}
+
+.notification-content.error {
+    border-color: var(--error-color);
+    background: linear-gradient(135deg, rgba(0, 30, 149, 0.2) 0%, var(--gray-dark-2) 100%);
+}
+
+#notification-text {
+    flex: 1;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.3px;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+.notification-close {
+    background: var(--dark-card);
+    border: 2px solid var(--border-color);
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--text-secondary);
+    padding: 8px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.notification-close:hover {
+    background: var(--error-color);
+    border-color: var(--error-color);
+    color: var(--white);
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 30, 149, 0.3);
+}
+
+/* Анимация загрузки */
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(5, 175, 237, 0.4), transparent);
+    animation: loadingScan 1.8s infinite;
+}
+
+@keyframes loadingScan {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Адаптивность */
+@media (max-width: 1400px) {
+    .camera-controls-panel {
+        flex: 0 0 260px;
+    }
+    
+    .camera-controls {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 10px;
+    }
+    
+    .header h1 {
+        font-size: 1.8em;
+    }
+    
+    .video-placeholder {
+        height: 180px;
+    }
+    
+    .video-panel {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .camera-content {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .camera-controls-panel {
+        flex: 0 0 auto;
+    }
+    
+    .video-panel {
+        flex: 1;
+        min-height: 140px;
+        max-width: 100%;
+    }
+    
+    .camera-controls {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+    }
+    
+    .video-placeholder {
+        height: 140px;
+    }
+    
+    .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 8px;
+    }
+    
+    .header {
+        padding: 16px;
+    }
+    
+    .header h1 {
+        font-size: 1.6em;
+        letter-spacing: 1px;
+    }
+    
+    .subtitle {
+        font-size: 0.9em;
+    }
+    
+    .camera-controls {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        padding: 10px;
+    }
+    
+    .input-group input {
+        padding: 6px 8px;
+        font-size: 0.75em;
+    }
+    
+    .btn {
+        padding: 8px 10px;
+        font-size: 0.75em;
+    }
+    
+    .video-placeholder {
+        height: 120px;
+    }
+    
+    .video-box {
+        padding: 10px;
+    }
+    
+    .camera-header h2 {
+        font-size: 1em;
+    }
+    
+    .cameras-grid {
+        gap: 6px;
+    }
+    
+    .camera-section {
+        margin-bottom: 4px;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система Видеоаналитики</title>
+    
+    <!-- Основные стили -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Стили для главной страницы -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    
+</head>
+
+<body>
+    <div class="container">
+        <!-- Заголовок -->
+        <header class="header">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Логотип" class="header-logo" width="180">
+    <div class="header-content">
+        <h1>Система Видеоаналитики</h1>
+        <p class="subtitle">Автоматизированная обработка видеопотоков с применением нейронных сетей</p>
+    </div>
+    <div></div> <!-- Пустой третий столбец -->
+</header>
+
+        <!-- Навигация -->
+        <div class="nav-buttons">
+            <a href="/" class="nav-btn active">Главная</a>
+            <a href="/events" class="nav-btn">Журнал событий</a>
+        </div>
+
+        <!-- Главный контейнер с трехколоночной структурой -->
+        <div class="main-layout">
+            <!-- Левая колонка - настройки камер -->
+            <div class="cameras-controls">
+                <!-- Камера 1 настройки -->
+                <section class="camera-controls-section">
+                    <div class="camera-header">
+                        <h2>Камера №1 - Сегментация людей</h2>
+                    </div>
+                    
+                    <div class="camera-controls">
+                        <div class="input-group">
+                            <label for="ip1">IP-адрес</label>
+                            <input type="text" id="ip1" placeholder="10.10.27.88" value="10.10.27.88">
+                        </div>
+                        <div class="input-group">
+                            <label for="port1">Порт</label>
+                            <input type="text" id="port1" placeholder="554" value="554">
+                        </div>
+                        <div class="input-group">
+                            <label for="username1">Логин</label>
+                            <input type="text" id="username1" placeholder="admin" value="admin">
+                        </div>
+                        <div class="input-group">
+                            <label for="password1">Пароль</label>
+                            <input type="password" id="password1" placeholder="123456" value="123456">
+                        </div>
+                        <div class="input-group">
+                            <label for="stream1">Поток</label>
+                            <input type="text" id="stream1" placeholder="stream0" value="stream0">
+                        </div>
+                    </div>
+                    
+                    <div class="camera-actions">
+                        <button id="connect1" class="btn btn-success">Подключить</button>
+                        <button id="disconnect1" class="btn btn-danger" style="display: none;">Отключить</button>
+                    </div>
+                    
+                    <div id="status1" class="status-card">
+                        <h4>Статус подключения</h4>
+                        <div class="status-indicator disconnected">
+                            <span class="indicator-light"></span>
+                            <span class="indicator-text">Отключено</span>
+                        </div>
+                    </div>
+                    
+                </section>
+
+                <!-- Камера 2 настройки -->
+                <section class="camera-controls-section">
+                    <div class="camera-header">
+                        <h2>Камера №2 - Детекция людей</h2>
+                    </div>
+                    
+                    <div class="camera-controls">
+                        <div class="input-group">
+                            <label for="ip2">IP-адрес</label>
+                            <input type="text" id="ip2" placeholder="10.10.27.90" value="10.10.27.90">
+                        </div>
+                        <div class="input-group">
+                            <label for="port2">Порт</label>
+                            <input type="text" id="port2" placeholder="554" value="554">
+                        </div>
+                        <div class="input-group">
+                            <label for="username2">Логин</label>
+                            <input type="text" id="username2" placeholder="admin" value="admin">
+                        </div>
+                        <div class="input-group">
+                            <label for="password2">Пароль</label>
+                            <input type="password" id="password2" placeholder="123456" value="123456">
+                        </div>
+                        <div class="input-group">
+                            <label for="stream2">Поток</label>
+                            <input type="text" id="stream2" placeholder="stream0" value="stream0">
+                        </div>
+                    </div>
+                    
+                    <div class="camera-actions">
+                        <button id="connect2" class="btn btn-success">Подключить</button>
+                        <button id="disconnect2" class="btn btn-danger" style="display: none;">Отключить</button>
+                    </div>
+                    
+                    <div id="status2" class="status-card">
+                        <h4>Статус подключения</h4>
+                        <div class="status-indicator disconnected">
+                            <span class="indicator-light"></span>
+                            <span class="indicator-text">Отключено</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Центральная колонка - изображения камер -->
+            <div class="cameras-video">
+                <!-- Видео камера 1 -->
+                <div class="video-section">
+                    <div class="video-box">
+                        <h3>Камера №1 - Сегментация людей</h3>
+                        <div class="video-placeholder">
+                            <img id="processed1" src="" alt="Обработанный поток камеры 1" style="display: none;">
+                            <div class="placeholder-text">
+                                <div>Камера не подключена</div>
+                                <div style="font-size: 0.9em; margin-top: 8px;">Ожидание подключения</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Видео камера 2 -->
+                <div class="video-section">
+                    <div class="video-box">
+                        <h3>Камера №2 - Детекция людей</h3>
+                        <div class="video-placeholder">
+                            <img id="processed2" src="" alt="Обработанный поток камеры 2" style="display: none;">
+                            <div class="placeholder-text">
+                                <div>Камера не подключена</div>
+                                <div style="font-size: 0.9em; margin-top: 8px;">Ожидание подключения</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="segmentation-product-section">
+                    <h2>Произведение площадей</h2>
+                    <div class="product-display">
+                        <div class="product-value">
+                            <span id="area-product" class="product-number">0</span>
+                            <span class="product-unit">пикс²</span>
+                        </div>
+                        <div class="product-formula">
+                            <span id="formula-area1">0</span> × <span id="formula-area2">0</span>
+                        </div>
+                    </div>
+                    <div class="segmentation-area-card">
+                        <h4>Площадь сегментации камеры 1</h4>
+                        <div class="area-value">
+                            <span id="camera1-area" class="area-number">0</span>
+                            <span class="area-unit">пикс</span>
+                        </div>
+                    </div>
+                    <div class="segmentation-area-card">
+                        <h4>Площадь сегментации камеры 2</h4>
+                        <div class="area-value">
+                            <span id="camera2-area" class="area-number">0</span>
+                            <span class="area-unit">пикс</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            <!-- Правая колонка - статистика точности и площадь сегментации -->
+            <div class="stats-sidebar">
+                <h2>Статистика точности</h2>
+                
+                <!-- Круг оценки -->
+                <div class="accuracy-circle evaluation-circle">
+                    <svg width="120" height="120">
+                        <circle cx="60" cy="60" r="52" class="circle-bg"></circle>
+                        <circle cx="60" cy="60" r="52" class="circle-progress" id="evaluation-progress"
+                                stroke-dasharray="327" stroke-dashoffset="327"></circle>
+                    </svg>
+                    <div class="circle-text">
+                        <div class="circle-percentage" id="evaluation-percentage">0%</div>
+                        <div class="circle-label">Оценено</div>
+                    </div>
+                </div>
+
+                <!-- Круг точности -->
+                <div class="accuracy-circle">
+                    <svg width="120" height="120">
+                        <circle cx="60" cy="60" r="52" class="circle-bg"></circle>
+                        <circle cx="60" cy="60" r="52" class="circle-progress" id="accuracy-progress"
+                                stroke-dasharray="327" stroke-dashoffset="327"></circle>
+                    </svg>
+                    <div class="circle-text">
+                        <div class="circle-percentage" id="accuracy-percentage">0%</div>
+                        <div class="circle-label">Точность</div>
+                    </div>
+                </div>
+
+                <!-- Числовая статистика -->
+                <div class="stats-numbers">
+                    <div class="stat-item">
+                        <div class="stat-value" style="color: var(--primary-blue);" id="total-alarms">0</div>
+                        <div class="stat-label">Всего алармов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" style="color: var(--accent-orange);" id="pending-alarms">0</div>
+                        <div class="stat-label">Ожидают оценки</div>
+                    </div>
+                </div>
+
+            
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для уведомлений -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span id="notification-text"></span>
+            <button id="notification-close" class="notification-close">&times;</button>
+        </div>
+    </div>
+
+    <!-- Подключение JavaScript -->
+    <!-- Основной скрипт для главной страницы -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    
+    <!-- Дополнительная логика для статистики -->
+    <script>
+        // Обновление круговых диаграмм
+        function updateCircularProgress(elementId, percentage) {
+            const circle = document.getElementById(elementId);
+            if (circle) {
+                const circumference = 327; // 2 * π * 52 (новый радиус)
+                const offset = circumference - (percentage / 100) * circumference;
+                circle.style.strokeDashoffset = offset;
+            }
+        }
+        
+        // Форматирование больших чисел
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(1) + 'M';
+            } else if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'K';
+            }
+            return num.toString();
+        }
+        
+        // Обновление статистики для главной страницы
+        function updateMainPageStats() {
+            fetch('/camera_status')
+                .then(response => response.json())
+                .then(data => {
+                    // Обновляем проценты
+                    const evaluationPercent = data.evaluation_percentage || 0;
+                    const accuracyPercent = data.accuracy_percentage || 0;
+                    
+                    const evalElement = document.getElementById('evaluation-percentage');
+                    const accElement = document.getElementById('accuracy-percentage');
+                    
+                    if (evalElement) evalElement.textContent = evaluationPercent + '%';
+                    if (accElement) accElement.textContent = accuracyPercent + '%';
+                    
+                    // Обновляем круговые диаграммы
+                    updateCircularProgress('evaluation-progress', evaluationPercent);
+                    updateCircularProgress('accuracy-progress', accuracyPercent);
+                    
+                    // Обновляем числовые показатели
+                    const totalElement = document.getElementById('total-alarms');
+                    const pendingElement = document.getElementById('pending-alarms');
+                    
+                    if (totalElement) totalElement.textContent = data.total_alarms || 0;
+                    if (pendingElement) pendingElement.textContent = data.pending_alarms || 0;
+                    
+                    // Обновляем площади сегментации
+                    const camera1Area = data.camera1?.segmentation_area || 0;
+                    const camera2Area = data.camera2?.segmentation_area || 0;
+                    
+                    const camera1AreaElement = document.getElementById('camera1-area');
+                    const camera2AreaElement = document.getElementById('camera2-area');
+                    
+                    if (camera1AreaElement) camera1AreaElement.textContent = formatNumber(camera1Area);
+                    if (camera2AreaElement) camera2AreaElement.textContent = formatNumber(camera2Area);
+                    
+                    // Обновляем произведение площадей
+                    const areaProduct = data.area_product || 0;
+                    const areaProductElement = document.getElementById('area-product');
+                    const formulaArea1Element = document.getElementById('formula-area1');
+                    const formulaArea2Element = document.getElementById('formula-area2');
+                    
+                    if (areaProductElement) areaProductElement.textContent = formatNumber(areaProduct);
+                    if (formulaArea1Element) formulaArea1Element.textContent = formatNumber(camera1Area);
+                    if (formulaArea2Element) formulaArea2Element.textContent = formatNumber(camera2Area);
+                })
+                .catch(error => {
+                    console.error('Ошибка обновления статистики:', error);
+                });
+        }
+        
+        // Обновление дополнительной статистики сегментации
+        function updateSegmentationStats() {
+            fetch('/get_segmentation_stats')
+                .then(response => response.json())
+                .then(data => {
+                    const maxProductElement = document.getElementById('max-product');
+                    const avgProductElement = document.getElementById('avg-product');
+                    
+                    if (maxProductElement) maxProductElement.textContent = formatNumber(data.max_product || 0);
+                    if (avgProductElement) avgProductElement.textContent = formatNumber(data.average_product || 0);
+                })
+                .catch(error => {
+                    console.error('Ошибка обновления статистики сегментации:', error);
+                });
+        }
+        
+        // Запуск обновления статистики
+        document.addEventListener('DOMContentLoaded', function() {
+            updateMainPageStats();
+            updateSegmentationStats();
+            
+            // Обновляем статистику каждые 2 секунды для площади сегментации
+            setInterval(updateMainPageStats, 2000);
+            
+            // Обновляем дополнительную статистику каждые 5 секунд
+            setInterval(updateSegmentationStats, 5000);
+        });
+        
+        // Интеграция с основным скриптом
+        if (window.checkCameraStatus) {
+            const originalCheckCameraStatus = window.checkCameraStatus;
+            window.checkCameraStatus = function() {
+                originalCheckCameraStatus();
+                updateMainPageStats();
+                updateSegmentationStats();
+            };
+        }
+    </script>
+</body>
+</html>
