@@ -13,7 +13,6 @@ class ModelManager:
     """Менеджер для управления YOLO моделями с поддержкой CUDA"""
 
     def __init__(self):
-
         self.yolo_seg_model: Optional[YOLO] = None
         self.yolo_det_model: Optional[YOLO] = None
         self.models_loaded = False
